@@ -29,7 +29,7 @@ const titles = {
 function useScrollManager() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
-    document.title = titles[pathname] ?? 'The Dairy Experts'
+    document.title = titles[pathname.length > 1 ? pathname.replace(/\/$/, '') : pathname] ?? 'The Dairy Experts'
     if (hash) {
       const t = setTimeout(() => document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450)
       return () => clearTimeout(t)
