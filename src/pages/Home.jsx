@@ -142,6 +142,16 @@ function Hero() {
             <MapPin className="h-3.5 w-3.5" /> Kolhapur, Maharashtra · Serving all of India
           </motion.span>
           <motion.h1 {...line(0.2)} className="mt-6 text-[2.1rem] font-extrabold leading-[1.1] tracking-[-0.025em] text-white sm:text-5xl lg:text-[3.4rem] xl:text-[3.9rem]">
+            <span aria-hidden="true" className="float-right -mr-1 mb-1 ml-1 block h-[4.25rem] w-[4.25rem] min-[375px]:ml-2 min-[375px]:h-[5.25rem] min-[375px]:w-[5.25rem] sm:h-28 sm:w-28 lg:hidden">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9, delay: 0.9, ease }}
+                className="block h-full w-full animate-float"
+              >
+                <RotatingBadge className="h-full w-full" />
+              </motion.span>
+            </span>
             The Ultimate Destination for{' '}
             <span className="relative whitespace-nowrap text-sky-300">
               Complete Dairy
@@ -177,7 +187,7 @@ function Hero() {
               </a>
             </div>
           </motion.div>
-          {/* Checklist + (phones/tablets) logo badge side by side, in normal flow so they can never overlap */}
+          {/* Checklist */}
           <div className="mt-8 flex items-end justify-between gap-3 sm:mt-10">
             <motion.ul {...line(0.65)} className="flex min-w-0 flex-col gap-y-2.5 text-[13px] text-white/70 sm:text-sm lg:flex-row lg:flex-wrap lg:gap-x-6">
               {['Erection & Commissioning', 'Project Layouts & Design', 'On-site Reconditioning'].map((t) => (
@@ -186,22 +196,12 @@ function Hero() {
                 </li>
               ))}
             </motion.ul>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.9, ease }}
-              className="pointer-events-none shrink-0 lg:hidden"
-            >
-              <div className="animate-float">
-                <RotatingBadge className="h-24 w-24 sm:h-28 sm:w-28" />
-              </div>
-            </motion.div>
           </div>
         </div>
 
         <div className="relative hidden justify-self-end lg:block">
           <TurnkeyCard />
-          <div className="hero-badge-desktop absolute -bottom-40 -left-20 animate-float xl:bottom-auto xl:-left-60 xl:top-6">
+          <div className="hero-badge-desktop absolute -bottom-40 -left-20 animate-float xl:bottom-auto xl:-left-52 xl:-top-24">
             <RotatingBadge />
           </div>
         </div>
