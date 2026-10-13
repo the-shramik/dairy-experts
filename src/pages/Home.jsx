@@ -177,26 +177,27 @@ function Hero() {
               </a>
             </div>
           </motion.div>
-          <motion.ul {...line(0.65)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5 text-[13px] text-white/70 sm:mt-10 sm:text-sm">
-            {['Erection & Commissioning', 'Project Layouts & Design', 'On-site Reconditioning'].map((t) => (
-              <li key={t} className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-sky-300" /> {t}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
-
-        {/* phones & tablets: badge sits in the empty space above the wave */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.9, ease }}
-          className="pointer-events-none absolute bottom-[5.5rem] right-4 sm:bottom-24 sm:right-6 lg:hidden"
-        >
-          <div className="animate-float">
-            <RotatingBadge className="h-24 w-24 sm:h-28 sm:w-28" />
+          {/* Checklist + (phones/tablets) logo badge side by side, in normal flow so they can never overlap */}
+          <div className="mt-8 flex items-end justify-between gap-3 sm:mt-10">
+            <motion.ul {...line(0.65)} className="flex min-w-0 flex-col gap-y-2.5 text-[13px] text-white/70 sm:text-sm lg:flex-row lg:flex-wrap lg:gap-x-6">
+              {['Erection & Commissioning', 'Project Layouts & Design', 'On-site Reconditioning'].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" /> {t}
+                </li>
+              ))}
+            </motion.ul>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.9, ease }}
+              className="pointer-events-none shrink-0 lg:hidden"
+            >
+              <div className="animate-float">
+                <RotatingBadge className="h-24 w-24 sm:h-28 sm:w-28" />
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         <div className="relative hidden justify-self-end lg:block">
           <TurnkeyCard />
