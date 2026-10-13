@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, ArrowUpRight, BookOpen, CheckCircle2, Download, Droplets, HardHat, MapPin, PencilRuler, PlayCircle, ShieldCheck, Timer, Truck } from 'lucide-react'
-import { useRef } from 'react'
+import { useId, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import CTABand from '../components/CTABand'
 import Counter from '../components/Counter'
@@ -16,21 +16,22 @@ import { asset } from '../lib/asset'
 
 const ease = [0.22, 1, 0.36, 1]
 
-function RotatingBadge() {
+function RotatingBadge({ className = 'h-36 w-36' }) {
+  const ring = `ring-${useId().replace(/:/g, '')}`
   return (
-    <div className="relative h-36 w-36">
+    <div className={`relative ${className}`}>
       <svg viewBox="0 0 200 200" className="absolute inset-0 animate-[spin_24s_linear_infinite]" aria-hidden="true">
         <defs>
-          <path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+          <path id={ring} d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
         </defs>
         <text className="fill-white font-display text-[14px] font-semibold uppercase">
-          <textPath href="#ring" textLength="480" lengthAdjust="spacing">
+          <textPath href={`#${ring}`} textLength="480" lengthAdjust="spacing">
             The Dairy Experts • Kolhapur • India •
           </textPath>
         </text>
       </svg>
-      <div className="absolute inset-7 grid place-items-center rounded-full bg-white shadow-2xl">
-        <img src={asset('/images/logo-emblem.svg')} alt="" className="h-16 w-16" />
+      <div className="absolute inset-[19%] grid place-items-center rounded-full bg-white shadow-2xl">
+        <img src={asset('/images/logo-emblem.svg')} alt="" className="h-[68%] w-[68%]" />
       </div>
     </div>
   )
@@ -167,11 +168,11 @@ function Hero() {
             <Link to="/services" className="btn-primary">
               Explore Solutions <ArrowRight className="h-4 w-4" />
             </Link>
-            <div className="flex flex-col items-start gap-2">
+            <div className="flex flex-col items-stretch gap-2 sm:items-start">
               <a href={company.brochure} download className="btn-ghost">
                 <Download className="h-4 w-4" /> Download Brochure
               </a>
-              <a href={asset('/brochure')} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 pl-2 text-[13px] font-semibold text-sky-200 hover:text-white">
+              <a href={asset('/brochure')} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-1.5 py-1 text-[13px] font-semibold text-sky-200 hover:text-white sm:justify-start sm:pl-2">
                 <BookOpen className="h-4 w-4" /> View Brochure
               </a>
             </div>
@@ -184,6 +185,18 @@ function Hero() {
             ))}
           </motion.ul>
         </div>
+
+        {/* phones & tablets: badge sits in the empty space above the wave */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.9, ease }}
+          className="pointer-events-none absolute bottom-[5.5rem] right-4 sm:bottom-24 sm:right-6 lg:hidden"
+        >
+          <div className="animate-float">
+            <RotatingBadge className="h-24 w-24 sm:h-28 sm:w-28" />
+          </div>
+        </motion.div>
 
         <div className="relative hidden justify-self-end lg:block">
           <TurnkeyCard />
@@ -217,7 +230,7 @@ function StatsStrip() {
 
 function Makes() {
   return (
-    <section className="py-14">
+    <section className="py-8 sm:py-14">
       <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted">
         Spares & service expertise across leading equipment makes
       </p>
