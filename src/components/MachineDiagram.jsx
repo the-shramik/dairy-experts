@@ -159,7 +159,7 @@ const MACHINES = {
       { x: 618, y: 160, name: 'Homogenizing Valve', part: 'Homogenizing Valve Block' },
       { x: 665, y: 203, name: 'Valve Seat & Impact Ring', part: 'Valve Seats & Impact Rings' },
       { x: 752, y: 176, name: 'Pressure Gauge', part: 'Pressure Gauges' },
-      { x: 422, y: 380, name: 'Oil Pump & Filter', part: 'Oil pumps & filters' },
+      { x: 422, y: 380, name: 'Oil Pump Assembly', part: 'Oil Pump Assembly' },
     ],
   },
   separator: {
@@ -184,11 +184,11 @@ const MACHINES = {
 
 export default function MachineDiagram({ onShow }) {
   const [machine, setMachine] = useState('homogenizer')
-  const firstWithPhoto = (k) => Math.max(0, MACHINES[k].spots.findIndex((s) => spareParts.some((p) => p.name === s.part)))
+  const firstWithPhoto = (k) => Math.max(0, MACHINES[k].spots.findIndex((s) => spareParts.some((p) => p.name === s.part && p.img)))
   const [sel, setSel] = useState(() => firstWithPhoto('homogenizer'))
   const m = MACHINES[machine]
   const spot = m.spots[sel]
-  const photo = spareParts.find((p) => p.name === spot.part)
+  const photo = spareParts.find((p) => p.name === spot.part && p.img)
   const wa = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello, I need a quotation for: ${spot.name} (${m.label})\nMachine make / model: \nQuantity: `)}`
 
   return (

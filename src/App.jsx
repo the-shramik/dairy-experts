@@ -8,6 +8,7 @@ import WhatsAppFab from './components/WhatsAppFab'
 import Home from './pages/Home'
 
 const About = lazy(() => import('./pages/About'))
+const Brochure = lazy(() => import('./pages/Brochure'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const Privacy = lazy(() => import('./pages/Privacy'))
@@ -41,6 +42,15 @@ function useScrollManager() {
 export default function App() {
   const location = useLocation()
   useScrollManager()
+
+  // Brochure flipbook is a standalone full-screen page (opened in a new tab).
+  if (location.pathname.replace(/\/$/, '') === '/brochure') {
+    return (
+      <Suspense fallback={<div className="fixed inset-0 bg-navy-950" />}>
+        <Brochure />
+      </Suspense>
+    )
+  }
 
   return (
     <MotionConfig reducedMotion="user">

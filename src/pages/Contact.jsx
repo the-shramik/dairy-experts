@@ -87,6 +87,9 @@ export default function Contact() {
           </InfoCard>
           <InfoCard icon={MapPin} title="Head Office">
             <span>{company.address.join(' ')}</span>
+            <a href={company.mapLink} target="_blank" rel="noreferrer" className="mt-1 inline-flex font-semibold text-brand-600 hover:underline">
+              Get directions on Google Maps
+            </a>
           </InfoCard>
           <InfoCard icon={Clock} title="Working Hours">
             <span>{company.hours}</span>
@@ -184,7 +187,7 @@ export default function Contact() {
         <Reveal className="overflow-hidden rounded-[2rem] ring-1 ring-navy-900/5">
           <iframe
             title="Map to The Dairy Experts, MIDC Shiroli, Kolhapur"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(company.mapQuery)}&output=embed`}
+            src={`https://maps.google.com/maps?q=${company.geo.lat},${company.geo.lng}&z=17&output=embed`}
             className="h-[26rem] w-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

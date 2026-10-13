@@ -20,7 +20,8 @@ npm run build    # production build in dist/
 
 ## Pending from client (search `TODO(client)`)
 
-- Team member names & designations (`team` in `site.js`)
+- Team designations, and confirm each photo matches the name (`team` in `site.js`)
+- Photos for PHE Gaskets, Oil Pump Assembly and the Butter Machine spares (`spareParts` in `site.js`, files in `public/images/spares/`)
 - Vision statement (About page)
 - Working hours
 - Which equipment makes they service (the "makes" marquee on Home)

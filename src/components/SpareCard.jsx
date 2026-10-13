@@ -1,5 +1,6 @@
 import { MessageCircle } from 'lucide-react'
 import { company } from '../data/site'
+import { asset } from '../lib/asset'
 
 const spareEnquiryLink = (name) =>
   `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello, I need a quotation for: ${name}\nMachine make / model: \nQuantity: `)}`
@@ -8,12 +9,19 @@ export default function SpareCard({ part, compact = false }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-navy-900/8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgba(6,38,82,0.35)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-ice-50">
-        <img
-          src={part.img}
+        {part.img ? (
+          <img
+            src={part.img}
           alt={part.name}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center gap-2 bg-gradient-to-b from-ice-50 to-ice-100 text-center">
+            <img src={asset('/images/logo-emblem.svg')} alt="" className="h-12 w-12 opacity-40 grayscale" />
+            <span className="text-[11px] font-medium text-muted">Photo coming soon</span>
+          </div>
+        )}
       </div>
       <div className={`flex flex-1 flex-col ${compact ? 'p-3.5 sm:p-4' : 'p-4 sm:p-5'}`}>
         <h3 className={`font-display font-semibold leading-snug text-navy-900 ${compact ? 'text-[13px] sm:text-sm' : 'text-sm sm:text-[15px]'}`}>

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, CheckCircle2, Download, Droplets, HardHat, MapPin, PencilRuler, PlayCircle, ShieldCheck, Timer, Truck } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BookOpen, CheckCircle2, Download, Droplets, HardHat, MapPin, PencilRuler, PlayCircle, ShieldCheck, Timer, Truck } from 'lucide-react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import CTABand from '../components/CTABand'
@@ -38,7 +38,7 @@ function RotatingBadge() {
 
 const steps = [
   { t: 'Design', i: PencilRuler },
-  { t: 'Erect', i: HardHat },
+  { t: 'Erection', i: HardHat },
   { t: 'Commission', i: PlayCircle },
 ]
 
@@ -161,15 +161,20 @@ function Hero() {
           </motion.h1>
           <motion.p {...line(0.35)} className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/75 sm:text-[17px]">
             Machinery supply, spare parts, turnkey plants and on-site engineering for milk pasteurizers,
-            centrifugal separators and high-pressure homogenizers.
+            centrifugal separators, high-pressure homogenizers and butter machines.
           </motion.p>
           <motion.div {...line(0.5)} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link to="/services" className="btn-primary">
               Explore Solutions <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href={company.brochure} download className="btn-ghost">
-              <Download className="h-4 w-4" /> Company Brochure
-            </a>
+            <div className="flex flex-col items-start gap-2">
+              <a href={company.brochure} download className="btn-ghost">
+                <Download className="h-4 w-4" /> Download Brochure
+              </a>
+              <a href={asset('/brochure')} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 pl-2 text-[13px] font-semibold text-sky-200 hover:text-white">
+                <BookOpen className="h-4 w-4" /> View Brochure
+              </a>
+            </div>
           </motion.div>
           <motion.ul {...line(0.65)} className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5 text-[13px] text-white/70 sm:mt-10 sm:text-sm">
             {['Erection & Commissioning', 'Project Layouts & Design', 'On-site Reconditioning'].map((t) => (
@@ -462,7 +467,7 @@ function Process() {
 }
 
 const featuredSpares = ['valve-block', 'bowl', 'pistons', 'phe-plate', 'connecting-rods', 'disc-stack', 'gears', 'pump-head'].map(
-  (k) => spareParts.find((p) => p.img.endsWith(`sp-${k}.webp`)),
+  (k) => spareParts.find((p) => p.img?.endsWith(`sp-${k}.webp`)),
 )
 
 function SparesShowcase() {
@@ -503,7 +508,7 @@ function Partners() {
       <SectionHeading align="center" eyebrow="Our network" title="Partners &" accent="group companies" />
       <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 lg:grid-cols-[1fr_1.6fr]">
         <Reveal className="card p-5 sm:p-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">Marketing partner</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">Authorised For</span>
           <div className="mt-5 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-4 lg:grid-cols-1">
             {partners.marketing.map((p) => (
               <div key={p.name} className="flex h-20 items-center justify-center rounded-2xl bg-ice-50 px-3 text-center sm:h-24 sm:px-6">
@@ -538,7 +543,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <StatsStrip />
       <Makes />
       <AboutPreview />
       <ServicesGrid />

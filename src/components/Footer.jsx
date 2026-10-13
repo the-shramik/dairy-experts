@@ -1,6 +1,7 @@
-import { ArrowUpRight, Download, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, BookOpen, Download, Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { company, nav, services, tel } from '../data/site'
+import { asset } from '../lib/asset'
 import Logo from './Logo'
 import Wave from './Wave'
 
@@ -18,9 +19,14 @@ export default function Footer() {
             Engineering partner for the Indian dairy sector, based in Kolhapur. We supply machinery and spare parts,
             set up turnkey plants and provide on-site service across India.
           </p>
-          <a href={company.brochure} download className="btn-ghost mt-7 !py-2.5 text-xs">
-            <Download className="h-4 w-4" /> Download Company Brochure
-          </a>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href={company.brochure} download className="btn-ghost !py-2.5 text-xs">
+              <Download className="h-4 w-4" /> Download Brochure
+            </a>
+            <a href={asset('/brochure')} target="_blank" rel="noreferrer" className="btn-ghost !py-2.5 text-xs">
+              <BookOpen className="h-4 w-4" /> View Brochure
+            </a>
+          </div>
         </div>
 
         <div className="lg:col-span-2">

@@ -259,3 +259,36 @@ export function SiloPacking({ animate }) {
     </svg>
   )
 }
+
+export function ButterChurn({ animate }) {
+  const id = useId()
+  return (
+    <svg viewBox="0 0 160 120" className="h-full w-full" aria-hidden="true">
+      <defs>
+        <Steel id={`${id}s`} dir="v" />
+        <linearGradient id={`${id}b`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ffe9a6" />
+          <stop offset="1" stopColor="#f2c45a" />
+        </linearGradient>
+      </defs>
+      <Shadow />
+      {/* stand */}
+      <path d="M38 100 L56 58 L62 58 L46 100 Z M122 100 L104 58 L98 58 L114 100 Z" fill="#a9b8c6" {...LINE} />
+      <rect x="30" y="98" width="100" height="6" rx="2" fill="#8796a5" />
+      {/* rotating drum */}
+      <motion.g style={{ originX: 0.5, originY: 0.5 }} animate={animate ? { rotate: [0, 360] } : { rotate: 0 }} transition={{ repeat: Infinity, duration: 3.2, ease: 'linear' }}>
+        <path d="M80 26 L101 35 L110 56 L101 77 L80 86 L59 77 L50 56 L59 35 Z" fill={`url(#${id}s)`} {...LINE} />
+        <path d="M80 26 L80 86 M50 56 L110 56" stroke={NAVY} strokeOpacity="0.2" strokeWidth="1" />
+        <rect x="74" y="28" width="12" height="7" rx="2" fill="#cfd8e1" {...LINE} />
+      </motion.g>
+      <circle cx="80" cy="56" r="5" fill="#cfd8e1" {...LINE} />
+      {/* gear motor */}
+      <rect x="112" y="48" width="22" height="16" rx="3" fill="#3a93c3" {...LINE} />
+      <rect x="104" y="53" width="8" height="6" fill="#8796a5" />
+      {/* butter blocks in tray */}
+      <rect x="16" y="86" width="30" height="8" rx="2" fill="#dfe6ed" {...LINE} />
+      <rect x="19" y="78" width="11" height="9" rx="1.5" fill={`url(#${id}b)`} stroke="#c99a2e" strokeWidth="0.8" />
+      <rect x="31" y="80" width="11" height="7" rx="1.5" fill={`url(#${id}b)`} stroke="#c99a2e" strokeWidth="0.8" />
+    </svg>
+  )
+}

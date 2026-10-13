@@ -29,14 +29,14 @@ export default function Team() {
             <StaggerItem key={i}>
               <article className="group relative overflow-hidden rounded-2xl bg-white sm:rounded-3xl ring-1 ring-navy-900/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgba(6,38,82,0.35)]">
                 <div className="relative aspect-[4/4] overflow-hidden bg-gradient-to-b from-ice-100 to-ice-50">
-                  <img src={m.photo} alt={`${m.name}, ${m.role}`} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                  <img src={m.photo} alt={m.role ? `${m.name}, ${m.role}` : m.name} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <img src={asset('/images/logo-emblem.svg')} alt="" className="absolute right-2.5 top-2.5 h-7 w-7 rounded-full bg-white p-0.5 shadow-md sm:right-4 sm:top-4 sm:h-10 sm:w-10 sm:p-1" />
                 </div>
                 <div className="relative p-4 sm:p-6">
                   <span className="absolute -top-0.5 left-4 h-1 w-10 sm:left-6 sm:w-12 rounded-full bg-brand-500 transition-all duration-500 group-hover:w-24" />
                   <h3 className="text-[15px] font-bold sm:text-lg">{m.name}</h3>
-                  <p className="mt-0.5 text-xs font-medium text-brand-600 sm:mt-1 sm:text-sm">{m.role}</p>
+                  {m.role && <p className="mt-0.5 text-xs font-medium text-brand-600 sm:mt-1 sm:text-sm">{m.role}</p>}
                 </div>
               </article>
             </StaggerItem>

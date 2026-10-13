@@ -29,7 +29,7 @@ jobs:
           BASE: /${{ github.event.repository.name }}/
       # Each route gets its own index.html (HTTP 200 for shared links); 404.html covers anything else.
       - run: |
-          for r in about services spare-parts projects team contact privacy; do
+          for r in about services spare-parts projects team contact privacy brochure; do
             mkdir -p dist/$r && cp dist/index.html dist/$r/index.html
           done
           cp dist/index.html dist/404.html

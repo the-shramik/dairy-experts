@@ -14,7 +14,9 @@ export const company = {
     'Tal. Karveer, Dist. Kolhapur,',
     'Maharashtra, India 416122',
   ],
-  mapQuery: 'MIDC Shiroli, Shiye, Kolhapur, Maharashtra 416122',
+  // Exact pin from the client's Google Maps link (The Dairy Experts India Private Limited)
+  geo: { lat: 16.7623128, lng: 74.2685998 },
+  mapLink: 'https://maps.app.goo.gl/gmGhyjG8NAKuj5AL7',
   whatsapp: '919823014113',
   brochure: asset('/the-dairy-experts-brochure.pdf'),
   phones: {
@@ -52,8 +54,8 @@ export const services = [
     icon: 'Factory',
     title: 'Machinery Sourcing & Supply',
     short: 'Heavy-duty dairy processing equipment with a strong focus on centrifugal separators and high-pressure homogenizers.',
-    body: 'We specialize in the procurement and supply of heavy-duty dairy processing equipment. From high-capacity centrifugal separators to advanced high-pressure homogenizers, we deliver machines that drive efficiency and product excellence.',
-    points: ['New & reconditioned machines', 'Separators, homogenizers, pasteurizers', 'Matched to plant capacity'],
+    body: 'We specialize in the procurement and supply of heavy-duty dairy processing equipment. From high-capacity centrifugal separators and advanced high-pressure homogenizers to butter making machines, we deliver machines that drive efficiency and product excellence.',
+    points: ['New & Reconditioned Machines', 'Separators, Homogenizers, Pasteurizers', 'Butter Making Machines', 'Matched To Plant Capacity'],
     image: asset('/images/homogenizer-unit.webp'),
   },
   {
@@ -62,7 +64,7 @@ export const services = [
     title: 'Precision Spare Parts',
     short: 'Rapid sourcing of matched-set industrial components so your machinery stays operational and reliable.',
     body: 'Downtime is the enemy of dairy production. We specialize in the rapid sourcing and supply of highly specific, matched-set industrial components such as drive gears, wheels, plungers, valves and seals, so your heavy machinery stays operational.',
-    points: ['Homogenizer & HP pump spares', 'Separator & clarifier spares', 'PHE plates & gaskets'],
+    points: ['Homogenizer & HP Pump Spares', 'Separator & Clarifier Spares', 'Butter Machine Spares', 'PHE Plates & Gaskets'],
     image: asset('/images/spares-bench.webp'),
   },
   {
@@ -71,7 +73,7 @@ export const services = [
     title: 'Dairy Consultancy',
     short: 'Strategic insight to modernize facilities and bridge traditional methods with scalable technology.',
     body: 'Beyond equipment, we offer the strategic insight needed to modernize dairy facilities. We bridge the gap between traditional processing methods and scalable, modern technology to help clients improve yield, quality and sustainable growth.',
-    points: ['Plant layouts & design', 'Process optimization', 'Capacity expansion planning'],
+    points: ['Plant Layouts & Design', 'Process Optimization', 'Capacity Expansion Planning'],
     image: asset('/images/plant-layout.webp'),
   },
   {
@@ -80,7 +82,7 @@ export const services = [
     title: 'Installation & Commissioning',
     short: 'Erection and commissioning of complete dairy plants, executed by our own engineering teams.',
     body: 'Our engineering teams handle erection and commissioning of complete dairy plants and individual equipment, from piping and utilities to trial runs and handover, anywhere in India.',
-    points: ['Complete plant erection', 'Trial runs & handover', 'Operator training'],
+    points: ['Complete Plant Erection', 'Trial Runs & Handover', 'Operator Training'],
     image: asset('/images/plant-floor.webp'),
   },
   {
@@ -89,7 +91,7 @@ export const services = [
     title: 'Reconditioning & On-site Repair',
     short: 'Preventive maintenance, troubleshooting and reconditioning support for dairy machinery on site.',
     body: 'Our team provides comprehensive maintenance strategies and hands-on troubleshooting. We work closely with plant managers to execute seamless upgrades, conduct preventive maintenance and recondition machinery on site.',
-    points: ['Preventive maintenance plans', 'On-site troubleshooting', 'Machine reconditioning'],
+    points: ['Preventive Maintenance Plans', 'On-site Troubleshooting', 'Machine Reconditioning'],
     image: asset('/images/spares-workshop.webp'),
   },
 ]
@@ -107,7 +109,7 @@ export const equipment = [
   'High Pressure Pumps',
   'Separators (Manual & Self Cleaning)',
   'Bactofuge',
-  'Clarifiers',
+  'Milk Clarifiers',
   'Ghee Clarifier',
   'Continuous Butter Making Machines',
   'Butter Churn & Reworkers',
@@ -126,6 +128,7 @@ export const spareCategories = [
   { id: 'homogenizer', label: 'Homogenizer & HP Pump' },
   { id: 'separator', label: 'Separator & Clarifier' },
   { id: 'phe', label: 'PHE & Process Line' },
+  { id: 'butter', label: 'Butter Machine' },
 ]
 
 export const spareParts = [
@@ -148,12 +151,21 @@ export const spareParts = [
   { name: 'SS Fasteners', cat: 'separator', img: 'sp-fasteners', note: 'Studs, nuts and bolts' },
   { name: 'PHE Plates', cat: 'phe', img: 'sp-phe-plate', note: 'SS 304 / 316 plates' },
   { name: 'PHE Plate Pack', cat: 'phe', img: 'sp-phe-pack', note: 'Complete packs for all frames' },
-  { name: 'PHE Gaskets', cat: 'phe', img: 'sp-phe-gaskets', note: 'EPDM and NBR gaskets' },
-].map((p) => ({ ...p, img: asset(`/images/spares/${p.img}.webp`) }))
+  // TODO(client): photo pending (the old crop repeated the PHE plate pack)
+  { name: 'PHE Gaskets', cat: 'phe', img: null, note: 'EPDM and NBR gaskets' },
+  // TODO(client): photo pending
+  { name: 'Oil Pump Assembly', cat: 'homogenizer', img: null, note: 'Lubrication pump with drive and filter' },
+  // Butter machine spares. TODO(client): photos pending
+  { name: 'Pulley', cat: 'butter', img: null, note: 'Drive and idler pulleys' },
+  { name: 'Gear Box', cat: 'butter', img: null, note: 'Reduction gear boxes for churns' },
+  { name: 'Screw', cat: 'butter', img: null, note: 'Feed and worker screws' },
+  { name: 'Heavy Duty Belts', cat: 'butter', img: null, note: 'V-belts and timing belts' },
+  { name: 'Oil Seals', cat: 'butter', img: null, note: 'Shaft and gear box seals' },
+].map((p) => ({ ...p, img: p.img && asset(`/images/spares/${p.img}.webp`) }))
 
 // Additional parts we supply that are not photographed yet.
 export const moreSpares = [
-  'Crankshaft', 'Oil pumps & filters', 'Hydraulic cylinders', 'Belts', 'Solenoid valves', 'Hand wheels',
+  'Crankshaft', 'Oil filters', 'Hydraulic cylinders', 'Belts', 'Solenoid valves', 'Hand wheels',
   'Spindle assembly', 'Sliding piston & seals', 'Paring discs', 'Friction pads',
   'Pump impellers', 'Mechanical seals', 'Valves & fittings', 'SS pipes & bends', 'Sensors & instruments',
 ]
@@ -185,14 +197,14 @@ export const partners = {
   ],
 }
 
-// TODO(client): replace names & designations with real team details.
+// TODO(client): add designations, and confirm each photo matches the name (photos are in brochure order).
 export const team = [
-  { name: 'Team Member', role: 'Managing Director', photo: asset('/images/team-1.webp') },
-  { name: 'Team Member', role: 'Sales Director', photo: asset('/images/team-2.webp') },
-  { name: 'Team Member', role: 'Projects Director', photo: asset('/images/team-3.webp') },
-  { name: 'Team Member', role: 'Head of Service & Maintenance', photo: asset('/images/team-4.webp') },
-  { name: 'Team Member', role: 'Sales Manager', photo: asset('/images/team-5.webp') },
-  { name: 'Team Member', role: 'Service Engineer', photo: asset('/images/team-6.webp') },
+  { name: 'Sagar Patil', role: '', photo: asset('/images/team-1.webp') },
+  { name: 'Kiran Naik', role: '', photo: asset('/images/team-2.webp') },
+  { name: 'Satish Patil', role: '', photo: asset('/images/team-3.webp') },
+  { name: 'Sanjeev Kumar', role: '', photo: asset('/images/team-4.webp') },
+  { name: 'Varun Prajapat', role: '', photo: asset('/images/team-5.webp') },
+  { name: 'Sagar Shinde', role: '', photo: asset('/images/team-6.webp') },
 ]
 
 export const gallery = [
