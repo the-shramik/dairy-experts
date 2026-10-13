@@ -6,7 +6,7 @@ import { asset } from '../lib/asset'
 
 const ease = [0.22, 1, 0.36, 1]
 
-export default function PageHero({ eyebrow, title, accent, text, image = asset('/images/plant-floor.webp') }) {
+export default function PageHero({ eyebrow, title, accent, text, image = asset('/images/plant-hall.webp') }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy-900 pb-24 pt-32 sm:pb-32 lg:pb-36 lg:pt-48">
       <motion.img

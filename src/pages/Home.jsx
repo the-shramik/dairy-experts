@@ -239,10 +239,10 @@ function AboutPreview() {
     <section className="container-x grid items-center gap-14 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
       <Reveal x={-30} y={0} className="relative">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] sm:aspect-[5/5]">
-          <img src={asset('/images/plant-floor.webp')} alt="Dairy processing plant by The Dairy Experts" className="h-full w-full object-cover" loading="lazy" />
+          <img src={asset('/images/plant-hall.webp')} alt="Dairy processing plant by The Dairy Experts" className="h-full w-full object-cover" loading="lazy" />
         </div>
         <div className="absolute -bottom-8 -right-2 w-36 overflow-hidden rounded-2xl border-[5px] border-white shadow-2xl sm:-right-8 sm:w-64 sm:border-[6px]">
-          <img src={asset('/images/homogenizer-unit.webp')} alt="High pressure homogenizer" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+          <img src={asset('/images/homogenizer-skid.webp')} alt="High pressure homogenizer" className="aspect-[4/3] w-full object-cover" loading="lazy" />
         </div>
         <div className="absolute -left-3 top-8 hidden items-center gap-3 sm:flex rounded-2xl bg-white p-3 pr-5 shadow-xl sm:-left-8">
           <span className="grid h-11 w-11 place-items-center rounded-xl bg-ice-100 text-brand-600">

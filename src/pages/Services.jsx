@@ -42,7 +42,7 @@ export default function Services() {
         title="Dairy machinery, spares"
         accent="and service"
         text="Machinery sourcing, spare parts, consultancy, installation and on-site reconditioning for dairy plants."
-        image={asset('/images/homogenizer-unit.webp')}
+        image={asset('/images/homogenizer-skid.webp')}
       />
       <SubNav />
 

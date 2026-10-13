@@ -56,7 +56,7 @@ export const services = [
     short: 'Heavy-duty dairy processing equipment with a strong focus on centrifugal separators and high-pressure homogenizers.',
     body: 'We specialize in the procurement and supply of heavy-duty dairy processing equipment. From high-capacity centrifugal separators and advanced high-pressure homogenizers to butter making machines, we deliver machines that drive efficiency and product excellence.',
     points: ['New & Reconditioned Machines', 'Separators, Homogenizers, Pasteurizers', 'Butter Making Machines', 'Matched To Plant Capacity'],
-    image: asset('/images/homogenizer-unit.webp'),
+    image: asset('/images/homogenizer-skid.webp'),
   },
   {
     id: 'spares',
@@ -83,7 +83,7 @@ export const services = [
     short: 'Erection and commissioning of complete dairy plants, executed by our own engineering teams.',
     body: 'Our engineering teams handle erection and commissioning of complete dairy plants and individual equipment, from piping and utilities to trial runs and handover, anywhere in India.',
     points: ['Complete Plant Erection', 'Trial Runs & Handover', 'Operator Training'],
-    image: asset('/images/plant-floor.webp'),
+    image: asset('/images/plant-hall.webp'),
   },
   {
     id: 'maintenance',
@@ -197,23 +197,23 @@ export const partners = {
   ],
 }
 
-// TODO(client): add designations, and confirm each photo matches the name (photos are in brochure order).
+// TODO(client): confirm designations and that each photo matches the name (photos are in brochure order).
 export const team = [
-  { name: 'Sagar Patil', role: '', photo: asset('/images/team-1.webp') },
-  { name: 'Kiran Naik', role: '', photo: asset('/images/team-2.webp') },
-  { name: 'Satish Patil', role: '', photo: asset('/images/team-3.webp') },
-  { name: 'Sanjeev Kumar', role: '', photo: asset('/images/team-4.webp') },
-  { name: 'Varun Prajapat', role: '', photo: asset('/images/team-5.webp') },
-  { name: 'Sagar Shinde', role: '', photo: asset('/images/team-6.webp') },
+  { name: 'Sagar Patil', role: 'Managing Director', photo: asset('/images/team-1.webp') },
+  { name: 'Kiran Naik', role: 'Sales Director', photo: asset('/images/team-2.webp') },
+  { name: 'Satish Patil', role: 'Projects Director', photo: asset('/images/team-3.webp') },
+  { name: 'Sanjeev Kumar', role: 'Head of Service & Maintenance', photo: asset('/images/team-4.webp') },
+  { name: 'Varun Prajapat', role: 'Sales Manager', photo: asset('/images/team-5.webp') },
+  { name: 'Sagar Shinde', role: 'Service Engineer', photo: asset('/images/team-6.webp') },
 ]
 
 export const gallery = [
-  { src: asset('/images/plant-floor.webp'), title: 'Milk processing hall', cat: 'Processing' },
+  { src: asset('/images/plant-hall.webp'), title: 'Milk processing hall', cat: 'Processing' },
   { src: asset('/images/aerial-plant.webp'), title: 'Complete dairy plant, aerial view', cat: 'Turnkey' },
   { src: asset('/images/silo-branded.webp'), title: 'Milk storage silo', cat: 'Storage' },
   { src: asset('/images/plant-layout.webp'), title: 'Dairy plant layout design', cat: 'Design' },
   { src: asset('/images/storage-tank.webp'), title: 'Horizontal milk storage tank', cat: 'Storage' },
-  { src: asset('/images/homogenizer-unit.webp'), title: 'High-pressure homogenizer installation', cat: 'Processing' },
+  { src: asset('/images/homogenizer-skid.webp'), title: 'High-pressure homogenizer installation', cat: 'Processing' },
   { src: asset('/images/hero-plant.webp'), title: 'Separation & pasteurization line', cat: 'Processing' },
   { src: asset('/images/silo-row.webp'), title: 'Silo & process tank farm', cat: 'Storage' },
   { src: asset('/images/plant-processing.webp'), title: 'Processing vat in operation', cat: 'Processing' },
@@ -256,5 +256,5 @@ export const faqs = [
 export const heroVideo = null
 
 // Projects page "Our work in action". Each item: YouTube id OR a self-hosted file, plus a poster image.
-// Example: { title: '50,000 LPD plant, Kolhapur', youtube: 'VIDEO_ID', poster: asset('/images/plant-floor.webp'), duration: '2:15' }
+// Example: { title: '50,000 LPD plant, Kolhapur', youtube: 'VIDEO_ID', poster: asset('/images/plant-hall.webp'), duration: '2:15' }
 export const videos = []
