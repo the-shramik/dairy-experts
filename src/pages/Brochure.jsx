@@ -50,7 +50,21 @@ export default function Brochure() {
     })
     el.style.width = `${size.spread ? size.w * 2 : size.w}px`
     el.style.height = `${size.h}px`
-    pf.loadFromImages(PAGES)
+    // HTML pages (not canvas) so the browser draws the page images at full screen resolution and text stays sharp.
+    const pages = PAGES.map((src, i) => {
+      const d = document.createElement('div')
+      d.className = 'bg-white'
+      d.dataset.density = i === 0 || i === PAGES.length - 1 ? 'hard' : 'soft'
+      const img = document.createElement('img')
+      img.src = src
+      img.alt = `Brochure page ${i + 1}`
+      img.draggable = false
+      img.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;user-select:none'
+      d.appendChild(img)
+      el.appendChild(d)
+      return d
+    })
+    pf.loadFromHTML(pages)
     pf.on('flip', (e) => setPage(e.data))
     book.current = pf
     const onKey = (e) => {

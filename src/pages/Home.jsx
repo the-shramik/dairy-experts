@@ -200,7 +200,7 @@ function Hero() {
 
         <div className="relative hidden justify-self-end lg:block">
           <TurnkeyCard />
-          <div className="absolute -bottom-40 -left-20 animate-float">
+          <div className="hero-badge-desktop absolute -bottom-40 -left-20 animate-float xl:bottom-auto xl:-left-60 xl:top-6">
             <RotatingBadge />
           </div>
         </div>
