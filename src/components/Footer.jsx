@@ -115,6 +115,20 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+
+      {/* Developer credit */}
+      <div className="border-t border-white/5 bg-black/20">
+        <div className="container-x flex flex-col items-center justify-center gap-2.5 py-4 text-[12px] text-white/50 sm:flex-row sm:gap-3">
+          <span>Designed &amp; developed professionally by</span>
+          <a href="tel:+919561949009" className="group inline-flex items-center gap-3 rounded-full bg-white/5 py-1 pl-1 pr-4 ring-1 ring-white/10 transition hover:bg-white/10">
+            <span className="grid h-10 w-14 place-items-center rounded-full bg-white">
+              <img src={asset('/images/ps-freelance-logo.webp')} alt="PS Freelance Services" className="h-8 w-auto" loading="lazy" />
+            </span>
+            <span className="font-semibold text-white/85">PS Freelance Services</span>
+            <span className="tabular-nums text-sky-300 group-hover:text-white">+91 95619 49009</span>
+          </a>
+        </div>
+      </div>
     </footer>
   )
 }
