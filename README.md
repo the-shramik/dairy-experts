@@ -46,3 +46,11 @@ Static hosting (Vercel / Netlify / any server). SPA rewrites are included: `verc
 
 - Hero background: set `heroVideo` in `src/data/site.js` and put the file in `public/videos/`. Use an 8-15 s muted loop, 1920x1080, H.264 MP4 under ~4 MB (optionally a WebM too). The photo shows first and the video fades in; phones, data-saver and reduced-motion users get the photo only.
 - Projects "Our work in action": add items to `videos` (YouTube id or self-hosted file + poster). The section is hidden while the list is empty.
+
+## Production (BigRock cPanel)
+
+- Live at https://thedairyexperts.com, served from `public_html` on the BigRock Linux hosting (cPanel).
+- Deploy: `BASE=/ npm run build`, zip the contents of `dist/` (includes `.htaccess` for HTTPS, non-www and SPA routes), upload to `public_html` and extract.
+- BigRock runs an nginx page cache in front of Apache. After a deploy, purge it: `curl -X PURGE https://thedairyexperts.com/` (and any page URL that still shows old content).
+- The previous WordPress site is kept in `~/wordpress_backup_2026-10-14` (outside `public_html`); its database was not touched.
+- DNS stays on BigRock; MX/SPF for Google Workspace were not changed.
