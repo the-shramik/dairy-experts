@@ -278,7 +278,7 @@ function AboutPreview() {
         />
         <Stagger className="mt-8 grid gap-4 sm:grid-cols-2">
           {[
-            { i: Timer, t: 'Minimal downtime', d: 'Rapid spares & on-site response' },
+            { i: Timer, t: 'Minimal downtime', d: 'Rapid spares & on-site repair' },
             { i: ShieldCheck, t: 'Hygiene standards', d: 'Built to strict dairy norms' },
             { i: Truck, t: 'Pan-India reach', d: 'Deployed across all states' },
             { i: Droplets, t: 'End-to-end', d: 'From layout to commissioning' },
